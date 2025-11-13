@@ -1,28 +1,47 @@
 import * as motion from "motion/react-client"
+import "./pagestyle.css"
+import { easeInOut } from "motion"
+import Container from "./components/Conatiner"
 export default function Home() {
+
   const ball = {
-    width: 100,
-    height: 100,
-    backgroundColor: "#ff1515ff",
-    borderRadius: "50%",
+    marginTop: "400px",
+    width: "100vh",
+    height: 500,
+    backgroundColor: "green",
+  }
+  const text = {
+    fontSize: 32
   }
   function EnterAnimation() {
     return <motion.div
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{duration: 0.4,
-        scale: {type: "spring", visualDuration: 0.4, bounce: 0.5}
+      transition={{
+        duration: 0.4,
+        scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 }
       }}
       style={ball} />
   }
 
 
   return (
-    <main style={{ display: "flex",height: 500, width: 600, justifyContent: 'center', alignItems: 'center'}} >
+    <main style={{ display: "flex", flexDirection: 'column' }} >
+      {/* <EnterAnimation />
       <EnterAnimation />
-      <div>
-        <h2 style={{justifyContent: 'center'}}>Why know what you want</h2>
+      <EnterAnimation /> */}
+      <div style={{ height: 100, width: 11, backgroundColor: 'red' }}>
       </div>
+      <motion.h1
+        style={{alignSelf: 'center', overflow: "hidden", marginTop: 100 }}
+        initial={{ width: 0 }}
+        whileInView={{ width: "100%" }}
+        transition={{duration: 3, ease: "easeInOut"}}
+        >
+        Dating apps suck
+      </motion.h1>
+      <Container />
+
     </main>
   );
 }
